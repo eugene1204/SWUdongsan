@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=1140px">
+      <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+      <meta http-equiv="content-type" content="text/html; charset=utf-8">
+      <link href="heroheader.css" rel="stylesheet" type="text/css">
+      <link href="oneroomform.css" rel="stylesheet" type="text/css">
+      <link href="https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Do+Hyeon&display=swap" rel="stylesheet">
+      <style type="text/css">
+          *{font-family: 'Do Hyeon', sans-serif; font-size: 20px;}
+      </style>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+      <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+
+
+      <title> hero</title> <!--제목으로 나오는 부분임, 변경의향있음-->
+      <!--
+          <meta name="keywords" content="원룸, 오피스텔, 이제 아파트까지. 부동산은 직방부터!" />
+           <meta name="description" content="원룸, 오피스텔, 이제 아파트까지. 부동산은 직방부터!" />
+          검색엔진에 걸리는 부분이라서 나중에 추가할예정
+      -->
+      </head>
+    <body>
+<div class="wrapper">
+  <header>
+    <div class="logo">
+      <h1>
+        <a href="./index.html"><img height="27" src="ceo_logo4.png" alt="직방 중개사 사이트" ></a>
+      </h1>
+      <!-- <div class="gnb">
+          <ul id="gnb-container">
+            <li class="">
+              <a href="/">홈</a>
+            </li>
+          </ul>
+      </div> -->
+    </div>
+    </header>
+   <div class="form">
+      <form>
+       <div class="FormStyle">
+           <table>
+            <caption> 주소정보 </caption>
+            <tr>
+            <script>
+                //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+                function sample4_execDaumPostcode() {
+                    new daum.Postcode({
+                        oncomplete: function(data) {
+                            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+
+                            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                            var roadAddr = data.roadAddress; // 도로명 주소 변수
+                            var autoAddr = data.autoJibunAddress; //지번 주소 변수
+                            var JibunAddr=data.jibunAddress; //지번주소변수
+                            var buildingName=data.buildingName; //단지명
+                            var jibunAddr='';
+
+                            if(autoAddr==''){//auto가 없을때 즉 아래거클릭
+                               jibunAddr=data.jibunAddress;
+
+                            }else if(JibunAddr==''){
+                               jibunAddr=data.autoJibunAddress;
+
+                            }
+                            var count=1;
+
+                            var ResautoAddr=jibunAddr.split(" ");
+                            var ResroadAddr=roadAddr.split(" ");
+
+                            if($('#sample4_jibunAddress_1').hasClass('tt')){
+                              $(".tt").remove();
+                           }
+                            if($('#sample4_jibunAddress_1').hasClass('tt')==false){
+                              $(".address0").append("<p>지번</p>");
+                            for(var i=0;i<ResautoAddr.length;i++){
+                               $(".address1").append("<div class='address2' ><input type='text' class='tt' style='width: 100px;'id='sample4_jibunAddress_"+count+"'width='200px' value='"+ResautoAddr[i]+"'> </div>");
+                               count++;
+                            }
+                            $(".address4").append("<p>도로명</p>");
+                            for(var i=0;i<ResroadAddr.length;i++){
+                               $(".address3").append("<div class='address2'><input type='text' class='tt'  style='width: 100px;' id='sample4_roadAddress_"+count+"'width='200px' value='"+ResroadAddr[i]+"'> </div>");
+                               count++;
+                            }
+                           }
+
+
+                            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                            document.getElementById('sample4_postcode').value = data.zonecode;
+
+                        }
+                    }).open();
+                }
+            </script>
+              <th>주소</th>
+              <th colspan="3"><input type="text" id="sample4_postcode" placeholder="우편번호" >
+            <input type="button" onclick="sample4_execDaumPostcode()" width="100px" value="우편번호 찾기"><br>
+            <div class="address0"></div>
+              <div class="address1"></div>
+            <div class="address4"></div>
+              <div class="address3"></div>
+
+            </th>
+             </tr>
+
+
+            <br>
+           </table>
+            </div>
+
+         <div class="FormStyle">
+                 <table>
+                   <tr>
+                     <th>단지명</th>
+                     <th ><input type="text" id="buildingName" name="buildingName"></th>
+                     <th colspan="2" ></th>
+                   </tr>
+
+                   <tr>
+                      <th>동/층/호</th>
+                      <th colspan="3" >
+                          <input type="text" id="dong_2" name="dong_2" style="width: 100px;"> 동 <input type="text" id="floor" name="floor" style="width: 100px;"> 층 <input type="text" id="ho" name="ho" style="width: 100px;"> 호
+                          <div class="ck-button" style="float:right " >
+                              <label>
+                              <input type="radio" name="noorin" id="no" ><span>거주</span>
+                              </label>
+                            </div>
+
+                                        <div class="ck-button" style="float:right">
+                                          <label>
+                                <input type="radio" name="noorin" id="in"><span>공실</span>
+                              </label>
+                                      </div>
+                        </th>
+                   </tr>
+                   <tr>
+                   <td>
+                         공동비밀번호
+                   </td>
+                   <td><input type="text"  name="all_password"></td>
+                   <td>세대비밀번호</td>
+                   <td><input type="text"  name="my_password"></td>
+                   </tr>
+                   <tr>
+                     <th>층/구조</th>
+                     <th>
+                       <h4>전체층</h4>
+                       <select id="building_floor" class="select">
+                         <option value>선택하세요</option>
+                         <option value="1">1층</option>
+                         <option value="2">2층</option>
+                         <option value="3">3층</option>
+                         <option value="4">4층</option>
+                         <option value="5">5층</option>
+                         <option value="6">6층</option>
+                         <option value="7">7층</option>
+                         <option value="8">8층</option>
+                         <option value="9">9층</option>
+                         <option value="10">10층</option>
+                         <option value="11">11층</option>
+                         <option value="12">12층</option>
+                         <option value="13">13층</option>
+                         <option value="14">14층</option>
+                         <option value="15">15층</option>
+                         <option value="16">16층</option>
+                         <option value="17">17층</option>
+                         <option value="18">18층</option>
+                         <option value="19">19층</option>
+                         <option value="20">20층</option>
+                         <option value="21">21층</option>
+                         <option value="22">22층</option>
+                         <option value="23">23층</option>
+                         <option value="24">24층</option>
+                         <option value="25">25층</option>
+                         <option value="26">26층</option>
+                         <option value="27">27층</option>
+                         <option value="28">28층</option>
+                         <option value="29">29층</option>
+                         <option value="30">30층</option>
+                         <script>
+                            $("#building_floor").on("change", function(){
+                              if($('#tttt').hasClass('tttt')){
+                              $(".tttt").remove();
+                           }
+                              var value =$("#building_floor").find("option:selected").val();
+                              console.log(value);
+                              var c=1;
+                              for(var i=0;i<value;i++){
+                                $("#downfloor").before("<option class='tttt' id='tttt' value='"+ c +"'> "+ c +"층</option>");
+                                c++;
+                              }
+                            });
+
+                        </script>
+                       </select>
+                     </th>
+                     <th>
+                       <h4>해당층</h4>
+                       <select id="building_floor_my"class="select">
+                         <option value>선택하세요</option>
+                         <option id="downfloor"value="반지하">반지하</option>
+                         <option value="옥탑방">옥탑방</option>
+                       </select>
+                     </th>
+
+                     <th>
+                       <h4>구조</h4>
+                       <select id="room_type" class="select">
+                         <option value>선택하세요</option>
+                         <option value="1">오픈형원룸</option>
+                         <option value="2">분리형원룸</option>
+                         <option value="3">복층형원룸</option>
+                         <option value="4">투룸</option>
+                         <option value="5">쓰리룸</option>
+                       </select>
+                     </th>
+                   </tr>
+
+                   </table>
+               </div>
+
+
+                <!--수정요망---------------------------------->
+                <div class="FormStyle">
+                  <table class="table">
+                    <caption>매물관련정보</caption>
+                    <tr>
+                      <th>거래유형</th>
+                      <th>
+                        <div class="ck-button">
+                          <label>
+                            <input type="radio" name="sales_type" id="yearM"value="전세">
+                            <span>전세</span>
+                          </label>
+                          </div>
+                        <div class="ck-button">
+                          <label>
+                            <input type="radio" name="sales_type" id="monthM" value="월세">
+                            <span>월세</span>
+                          </label>
+                        </div>
+                        <div class="ck-button">
+                          <label>
+                            <input type="radio" name="sales_type" id="ymM" value="전월세">
+                            <span>전월세</span>
+                          </label>
+                        </div>
+                       </th>
+                      <th colspan="2"> <div class="sales_type_m"></div>
+                        <!-- <input type="text" style="width: 80px;"id="deposit" name="deposit" placeholder="보증금">만원</th>
+                      <th><input type="text"  style="width: 80px;"id="rent" name="rent" placeholder="월세">만원 -->
+                      </th>
+                    </tr>
+                    <script>
+                    $('input[name="sales_type"]').change(function() {
+                      if($('#deposit').hasClass('ttt')||$('#rent').hasClass('ttt')){
+                              $(".ttt").remove();
+                           }
+                      var id = $('input[name="sales_type"]:checked').attr('id');
+                      if(id=="yearM"){//전세일경우
+                        $(".sales_type_m").append("<input type='text' class='ttt' style='width: 80px;'id='deposit' name='deposit' placeholder='보증금'><label class='ttt'>만원</label>");
+                      }else if(id=="monthM"||id=="ymM"){//월세
+                        $(".sales_type_m").append("<input type='text' class='ttt' style='width: 80px;'id='deposit' name='deposit' placeholder='보증금'><label class='ttt'>만원</label>");
+                        $(".sales_type_m").append("<input type='text' class='ttt'  style='width: 80px;'id='rent' name='rent' placeholder='월세'><label class='ttt'>만원</label>");
+                      }else{
+
+                      }
+                      //console.log(id);
+                    });
+                    </script>
+
+                    <tr class="_manage_cost_tr">
+                      <th >관리비</th>
+                      <th class="_manage_cost_th"  colspan="2">
+                          <div class="ck-button">
+                              <label><input type="radio" name="_manage_cost" value="true">
+                              <span>관리비있음</span></label>
+                          </div>
+                          <div class="ck-button">
+                              <label><input type="radio" name="_manage_cost" value="false">
+                              <span>관리비없음</span></label>
+                            </div>
+                        <!-- <input type="text" id="administration_cost " name="administration_cost" placeholder="관리비">만원 -->
+                      </th>
+                     </tr>
+                      <script>
+                      $('input[name="_manage_cost"]').change(function() {
+                         var value= $('input[name="_manage_cost"]:checked').val();
+                      //   console.log(value);
+
+                         if(value=="true"){//관리비있었을때
+                            console.log(value);
+                            $("._manage_cost_th").append("<input type='text' id='administration_cost' class='administration_cost' name='administration_cost'  placeholder='관리비'><label class='administration_cost'>만원</label>");
+                            $(".table").append("<tr id='jj'>"
+                                    +"<th>포함내역</th>"
+                                      +"<th colspan='3'>"
+                                    +"<div class='ck-button'>"
+                                         +"<label>"
+                                            +"<input type='checkbox' name='_manage_cost_inc' value='01'>"
+                                            +"<span>전기세</span>"
+                                      +"</label>"
+                                      +"</div>"
+                                      +"<div class='ck-button'>"
+                                     +"<label>"
+                                        +"<input type='checkbox' name='_manage_cost_inc' value='02'>"
+                                        +"<span>가스</span>"
+                                     +"</label>"
+                                   +"</div>"
+                                   +"<div class='ck-button'>"
+                                   +"<label>"
+                                        +"<input type='checkbox' name='_manage_cost_inc' value='03'>"
+                                        +"<span>수도</span>"
+                                     +"</label>"
+                                     +"</div>"
+                                     +"<div class='ck-button'>"
+                                     +"<label>"
+                                       +"<input type='checkbox' name='_manage_cost_inc' value='04'>"
+                                       +"<span>인터넷</span>"
+                                    +"</label>"
+                                    +"</div>"
+                                    +"<div class='ck-button'>"
+                                     +"<label>"
+                                       +"<input type='checkbox' name='_manage_cost_inc' value='05'>"
+                                       +"<span>tv</span>"
+                                    +"</label>"
+                                    +"</div>"
+                                    +"<input type='text' id='administration_cost_including' name='administration_cost_including' placeholder='기타'> </th>"
+                                      +"</tr>");
+                         }else if(value=="false"){//관리비없었을때
+                            var text=$('input[name="administration_cost"]');
+                              var text1=text.attr('name');
+
+                              if(text1){//관리비 입력 텍스트, 관리비포함내역 지우기
+                               var trHtml = $(this).children();
+                               $('.administration_cost').remove();
+                               $('#jj').remove();
+                              }
+                         }
+
+                         });
+                      </script>
+
+                    </table>
+                </div>
+
+           <div class="FormStyle">
+                    <table>
+                      <caption>사진/동영상</caption>
+                      <tr>
+                        <th>사진/동영상</th>
+                      </tr>
+
+                      <tr>
+                        <th>
+                          사진등록
+                        </th>
+                      </tr>
+                      <tr>
+                        <th>    <button id="picfiles">사진등록</button>
+                        </th>
+                        <!--사진등록을 했을경우 배열로 저장해줍니다 배열로 저장되는건 두가지인데
+                    이건 왜이럴까 input type-hidden으로 저장됩니다. 이거 나중에 물어볼기-->
+                      </tr>
+
+                      <tr>
+                          <th>
+                            동영상등록
+                          </th>
+                        </tr>
+                        <tr>
+                          <th>    <button id="picfiles">동영상등록</button>
+                          </th>
+                          <!--사진등록을 했을경우 배열로 저장해줍니다 배열로 저장되는건 두가지인데
+                      이건 왜이럴까 input type-hidden으로 저장됩니다. 이거 나중에 물어볼기-->
+                        </tr>
+                      </table>
+                  </div>
+
+                  <!------------------------------------------------------------------------------------>
+                  <div class="FormStyle">
+                    <table>
+                      <caption>기본정보</caption>
+                      <tr>
+                        <th>옵션</th>
+                        <th colspan="3">
+                          <div class="wrapper_option">
+                            <div class="ck-button">
+                              <label>
+                                <input type="checkbox" name="_options" value="01">
+                                <span>에어컨</span>
+                              </label>
+                            </div>
+                            <div class="ck-button">
+                              <label>
+                                <input type="checkbox" name="_options" value="02">
+                                <span>냉장고</span>
+                              </label>
+                            </div>
+                          <div class="ck-button">
+                                     <label>
+                                      <input type="checkbox" name="_options" value="03">
+                                      <span>세탁기</span>
+                                     </label>
+                                         </div>
+                          <div class="ck-button">
+                            <label>
+                              <input type="checkbox" name="_options" value="04">
+                              <span>가스레인지</span>
+                            </label>
+                          </div>
+                        </div>
+
+                        <div class="wrapper_option">
+                          <div class="ck-button">
+                            <label>
+                              <input type="checkbox" name="_options" value="05">
+                              <span>인덕션</span>
+                            </label>
+                          </div>
+                          <div class="ck-button">
+                            <label>
+                              <input type="checkbox" name="_options"  value="06">
+                              <span>전자레인지</span>
+                            </label>
+                          </div>
+
+                          <div class="ck-button">
+                            <label>
+                              <input type="checkbox" name="_options" value="07">
+                              <span>책상</span>
+                            </label>
+                          </div>
+                          <div class="ck-button">
+                            <label>
+                              <input type="checkbox" name="_options"  value="08">
+                              <span>책장</span>
+                            </label>
+                          </div>
+                        </div>
+                        <div class="wrapper_option">
+                          <div class="ck-button">
+                            <label>
+                              <input type="checkbox" name="_options" value="09">
+                              <span>침대</span>
+                            </label>
+                          </div>
+                          <div class="ck-button">
+                            <label>
+                              <input type="checkbox" name="_options" value="10">
+                              <span>옷장</span>
+                            </label>
+                          </div>
+                          <div class="ck-button">
+                                   <label>
+                                    <input type="checkbox" name="_options" value="11">
+                                    <span>신발장</span>
+                                   </label>
+                          </div>
+                          <div class="ck-button">
+                            <label>
+                              <input type="checkbox" name="_options"  value="12">
+                              <span>싱크대</span>
+                            </label>
+                          </div>
+                        </div>
+                          </th>
+                        </tr>
+
+                            <tr>
+                              <th>주차</th>
+                              <th colspan="3" class="parking_th">
+                                <div class="wrapper_option" id="parking_wrapper">
+                                   <div class="ck-button">
+                                   <label>
+                                    <input type="radio" name="parking" id="unparking" value="false"> <span>주차 불가능</span>
+                                 </label>
+                                 </div>
+                                <div class="ck-button">
+                                  <label>
+                                    <input type="radio" name="parking" id="parking" value="true"> <span>주차가능</span>
+                                  </label>
+                                </div>
+                                   </div>
+                                </th>
+
+                               </tr>
+
+                              <script>
+                              $('input[name="parking"]').change(function() {
+                                   var value= $('input[name="parking"]:checked').val();
+                                console.log(value);
+
+                                   if(value=="true"){//주차가능일경우
+                                      console.log(value);
+                                      $("#parking_wrapper").append("<input type='text' id='parkingcost' class='parkingcost' name='parkingcost' style='width: 80px'; float:'right'><label class='parkingcost'> 주차비용</label>");
+
+                                    $("#parking_wrapper").append("<div class='checkbox_wrapper'><input type='checkbox' id='box1' /><label for='box1'>자주식</label>"
+                                    +"<input type='checkbox' id='box2' /><label for='box2'>기계식</label>"
+                                    +"<input type='text' style='width: 80px; height:10px;'id='divECI_ISDVSAVE3' class='checkbox-style' /><label for='divECI_ISDVSAVE'>기타</label></div>");
+
+                                   }else if(value=="false"){//주차불가능
+                                      var text=$('input[id="parking"]');
+                                        var text1=text.attr('id');
+                                      console.log(value);
+                                        if(text1){//주차비용텍스트있으면 삭제하기
+                                         var trHtml = $(this).children();
+                                         $('.parkingcost').remove();
+                                      $('.checkbox_wrapper').remove();
+
+                                        }
+                                   }
+
+                                   });
+
+                              </script>
+
+                            <tr>
+                              <th>앨래베이터</th>
+                              <th colspan="3">
+                                <div class="wrapper_option">
+
+                                <div class="ck-button">
+                                  <label>
+                                    <input type="radio" name="building_elevator" value="true">
+                                    <span>있음</span>
+                                  </label>
+                              </div>
+                                <div class="ck-button">
+                                  <label>
+                                    <input type="radio" name="building_elevator" value="false">
+                                    <span>없음</span>
+                                    </label>
+                                </div>
+
+
+                        <!-- <tr>
+                        <th colspan="4"> 단기가능 <input type="text" id="short_term " name="short_term"> <input type="checkbox" name="short_term" id="short_term_text"> 1년 <input type="checkbox" name="1year" id="1year"> 2년<input type="checkbox" name="2year" id="2year"> 상관없음  <input type="checkbox" name="dcare" id="dcare"></th>
+                      </tr> -->
+
+                              </div>
+                      </th>
+                        </tr>
+                        <tr>
+                          <th>기타</th>
+                          <th colspan="3">
+                          <div class="wrapper_option">
+                            <div class="ck-button">
+                              <label><input type="checkbox" name="animal" id="animal"><span>반려동물가능</span></label>
+                            </div>
+                            <div class="ck-button">
+                              <label><input type="checkbox" name="vanda " id="vanda "><span>배란다</span></label>
+                            </div>
+                            <div class="ck-button">
+                              <label><input type="checkbox" name="short_term" id="short_term "><span>단기가능</span></label>
+                            </div>
+                          </div>
+                          </th>
+                        </tr>
+                      <tr>
+                        <th>특이사항</th>
+                        <th  colspan="3"><textarea name="memo" cols="80" rows="5"> </textarea></th>
+                        </tr>
+                      </table><br>
+           </div>
+           <div class="FormStyle">
+
+                    <table>
+                      <caption>인적사항</caption>
+                      <tr>
+                        <th>입주가능일</th>
+                        <th colspan="3"> <div class="ck-button">
+                          <label>
+                            <input type="radio" name="movien_date">
+                            <span>즉시입주</span>
+                          </label>
+                        </div>
+                          <div class="ck-button">
+                            <label>
+                              <input type="radio" name="movien_date">
+                              <span>이사날짜<br>정해짐</span>
+                            </label>
+                          </div>
+                          <div class="ck-button">
+                            <label>
+                              <input type="radio" name="movien_date">
+                              <span>이사날짜<br> 정해지지않음</span>
+                            </label>
+                          </div>
+                          <div class="ck-button">
+                            <label>
+                              <input type="radio" name="movien_date">
+                              <span>조정가능</span>
+                            </label>
+                          </div>
+                          <div class="ck-button">
+                            <label>
+                              <input type="radio" name="movien_date">
+                              <span>기타</span>
+                            </label>
+                          </div>
+                        </th>
+
+
+                        </tr>
+
+                      <tr>
+                        <th>집볼수있는시간</th>
+                        <th  colspan="3"><textarea name="time" cols="40" rows="5"> </textarea></th>
+                        </tr>
+                      </table>
+               </div>
+                    <!------------------------------------------------------------------------------------>
+                    <div class="FormStyle">
+                    <table >
+                      <caption>매도(임대)인</caption>
+
+                      <tr>
+                        <td>소유자인적사항</td>
+                        <td colspan="5"></td>
+                      </tr>
+
+                      <tr>
+                        <td width="170px">이름</td>
+                        <td width="170px"><input type="text" name="owner_name" id="owner_name" style="width:80px;"></td>
+                        <td width="170px">관계</td>
+                         <td width="170px"><input type="text" name="relation" style="width:80px;"></td>
+
+                        <td>성별</td>
+                        <td>
+                        <div class="checkbox_wrapper">
+
+                              <input type="radio" name="gender" id="box11">
+                              <label for="box11">남</label>
+
+                              <input type="radio"  name="gender" id="box22">
+                              <label for="box22">여</label>
+
+                            </div>
+                        </td>
+                      </tr>
+                      <tr>
+                      <td width="273.33px">전화번호</td>
+                        <td width="276px" colspan="3"><input type="text" name="owner_phone1" id="owner_phone1" style="width:40px;"> - <input type="text" name="owner_phone2" id="owner_phone2" style="width:50px;"> - <input type="text" name="owner_phone3" id="owner_phone3" style="width:50px;"></td>
+                        <td width="236.67px" colspan="1"><select id="phone_" class="select">
+                         <option >통신사</option>
+                         <option value="skt">SKT</option>
+                         <option value="kt">KT</option>
+                         <option value="lg">LG</option>
+                         <option value="skt_al">SKT알뜰</option>
+                         <option value="kt_al">KT알뜰</option>
+                         <option value="lg_al">LG알뜰</option>
+                         </select></td>
+                         <td width="236.67px">
+                         <div class="ck-button">
+                        <label>
+                              <input type="checkbox" name="call">
+                              <span>연락대상</span>
+                            </label>
+                            </div>
+                        </td>
+                        </tr>
+
+
+
+
+                          <script>
+
+                          function insertRow(addTable){//학생정보추가
+                             oTbl=document.getElementById("addTable"); //addTable을 찾기
+
+                             var oRow =oTbl.insertRow(); //insertRow-> tr이 하나 늘어난다
+
+                              oRow.onmouseover=function(){
+                                oTbl.clickedRowIndex=this.rowIndex; //index번호를 넣어준다
+                              };
+                              var oCell=oRow.insertCell(0); //insertCell->td를 만들겠다
+                       var oCell1=oRow.insertCell(1);
+                       var oCell2=oRow.insertCell(2);
+                       var oCell3=oRow.insertCell(3);
+                       var oCell4=oRow.insertCell(4);
+
+                              var frmTag="<input type='text' name='owner_phone1' id='owner_phone1' style='width:40px;'> - <input type='text' name='owner_phone2' id='owner_phone2' style='width:50px;'> - <input type='text' name='owner_phone3' id='owner_phone3' style='width:50px;'>";
+                              //학생정보 입력할수있는 필드박스3개만들기
+                              var frmTag2="<input type='button' value='삭제' onclick='removeRow()' style='cursor:hand'>";
+                              var frmTag3="<input type='text' name='relation_people' style='width:200px;' placeholder='소유자와의 관계'>";
+                              //학생정보 삭제할수있는 버튼만든다
+                              var frmTag4="<div class='ck-button'>"
+                                       +'<label>'
+                                          +"<input type='checkbox' name='call'>"
+                                        +"<span>연락대상</span>"
+                                        +"</label>"
+                                        +"</div>";
+
+                          oCell.innerHTML='관계인 전화번호';
+                          oCell1.innerHTML=frmTag; //td정보를 oCell에 추가함
+                          oCell2.innerHTML=frmTag2;
+                          oCell3.innerHTML=frmTag3;
+                          oCell4.innerHTML=frmTag4;
+
+                          }
+
+                            function removeRow(){
+                              oTbl.deleteRow(oTbl.clickedRowIndex); //addTable에해당하는 index번호를 삭제하겠습니다
+                            }
+                          </script>
+
+
+                        </table>
+                        </div>
+               <div class="FormStyle">
+
+               <table id="addTable" >
+               <div class="ck-button" style="margin-bottom:10px;">
+                            <label>
+                              <input type="button" name="owner_phone2" id="owner_phone2" onclick="insertRow('addTable');">
+                              <span>관계인추가하기</span>
+                            </label>
+                          </div>
+               </table>
+
+               </div>
+
+                      <div class="FormStyle">
+                      <table >
+                      <caption>개인정보/매수(임차)인</caption>
+                      <tr>
+                        <td>임차인전화번호</td>
+                        <td><input type="text" name="renter_phone1" id="renter_phone1" style="width:40px;"> - <input type="text" name="renter_phone2" id="renter_phone2" style="width:50px;"> - <input type="text" name="renter_phone3" id="renter_phone3" style="width:50px;"></th>
+                          <td></td>
+                          <td></td>
+                        </tr>
+
+
+                      </table>
+                  </div>
+                      <input type="submit" value="확인">
+
+          </form>
+
+     </div>
+
+</div>
+
+
+  <footer></footer>
+
+
+</body>
+   </html>

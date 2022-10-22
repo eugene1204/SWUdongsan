@@ -1,0 +1,41 @@
+
+.container_total{
+  width: 100%;
+  float: left; margin-left:10px;
+position: relative;}
+.container_photo{position:relative; background-color: black;
+width:625px;
+}
+.container_photo>img{display: block; margin-left: auto; margin-right: auto;}
+/* 이미지 가운데 정렬 */
+.container_total::after{ content:""; display:block;clear:both;}
+
+.real_estate_agent{
+    position: absolute;
+    width: 280px;
+    right: 50px;
+    top: 100px;
+
+    /* float: right; */
+    box-sizing: border-box;
+    padding: 15px 25px;
+    text-align: justify;
+    background: rgba(250,244,192,0.2);
+    border: 1px solid lightgray;
+}
+.real_estate_agent>h3{
+    box-sizing: border-box;
+    border: 2px solid lightgray;
+    padding: 8px 10px;
+
+    background-color: rgba(250,244,192,0.8);
+}
+.home_content{
+    border: 2px solid #bcbcbc;
+    border-collapse: collapse;
+    width: 625px;
+    height: 10px;
+ }
+ th,tr{
+   border: 1px solid #444444;
+ }

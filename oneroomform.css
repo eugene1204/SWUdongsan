@@ -1,0 +1,162 @@
+
+body{
+  height: auto;
+/* width:780px;  margin: 0 auto; */
+background-color:#ffffff;
+  }
+  .total{}
+.container{width:780px;  margin: 0 auto;
+position: absolute;
+  top: 150px;
+  left: 20%;width: 780px;}
+  th{
+  border:none;
+/*      1px solid #bcbcbc;*/
+  padding: 2px;
+  }
+  tr{
+   border:  1px solid #bcbcbc;
+  }
+  table{
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 0px solid #bcbcbc;
+    border-collapse: collapse;
+    /*border-collapse는 두줄을 한줄로 만들어줍니다*/
+  }
+  a{  text-decoration: none;}
+
+.tr_1{
+border: 1px;
+}
+
+.FormStyle{
+ margin-bottom: 20px;
+
+}
+caption{
+ float:left;
+ font-size: 20px;
+ margin-bottom: 10px;
+}
+/*--------------------------------------------------------------------------------------------  */
+.box{
+ float: left;
+ margin-right: 40px;
+ margin-top: 70px;
+
+}
+
+.box_total{
+ margin-left: 180px;
+ }
+/*=---------------------------------------*/
+.menushow {
+font-family: 'Do Hyeon', sans-serif;
+line-height: 200%;
+background-color: rgba(141,118,26,0.5);
+padding: 0px;
+margin: 0;
+height: 30px;
+width: 130px;
+font-size: 16px;
+display: inline-block;
+float: left;
+
+}
+.menushow2 {
+font-family: 'Do Hyeon', sans-serif;
+line-height: 200%;
+background-color: rgba(141,118,26,0.2);
+padding: 0px;
+margin: 0;
+height: 30px;
+width: 130px;
+font-size: 16px;
+display: inline-block;
+float: left;
+
+}
+.menushowStyle{
+ margin:30px auto;
+  display: block;
+  width: 100%;
+  height:30px;
+
+}.menushowTotal{
+width
+  : 100%;
+height: 100%;
+margin-left: 50px;
+margin-top: 0px;
+}
+
+.menusection {
+position: relative;
+height: 600px;
+width: 100%;
+
+}
+/**/
+
+
+.checkbox_wrapper input[type=checkbox] { display:none; }
+
+.checkbox_wrapper input[type=checkbox] + label {
+
+display: inline-block;
+
+cursor: pointer;
+
+line-height: 22px;
+
+padding-left: 22px;
+
+background: url('checkbox_unchecked.png') left/22px no-repeat;
+
+}
+
+.checkbox_wrapper input[type=checkbox]:checked + label { background-image: url('checkbox_checked.png'); }
+
+.checkbox_wrapper input[type=radio] { display:none; }
+
+.checkbox_wrapper input[type=radio] + label {
+
+display: inline-block;
+
+cursor: pointer;
+
+line-height: 22px;
+
+padding-left: 22px;
+
+background: url('checkbox_unchecked.png') left/22px no-repeat;
+
+}
+
+.checkbox_wrapper input[type=radio]:checked + label { background-image: url('checkbox_checked.png'); }
+
+.menusectionStyle {
+width: 100%;
+  height:60px;
+
+}
+.wrapper_option{width: 800px; height:50px; display: block; margin: 10px;}
+/* css 추가 */
+.address2{
+margin-right: 10px; display: inline;
+}
+.address1{margin: 10px; display: inline;}
+.address3{margin: 10px; display: inline;}
+.address0{display: inline-block; }
+.address4{display: inline-block; }
+.address1::after{content:""; display:block; clear: both;}
+
+.form{
+  margin : 0 auto;
+  width:1024px;
+  text-align: center;
+  height: auto;
+}
+/* 직방 수정 */

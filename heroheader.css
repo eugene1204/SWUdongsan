@@ -1,0 +1,164 @@
+/*header*/
+
+header{
+  height: 100px; width: 100%;background-color:#ffffff; border:1px  solid #ffffff;
+  }
+  
+  .logo{
+    color: white; line-height: 80px; float:left;
+    position: relative;
+    left:30px;
+    top:4px;
+     /* bottom:30px; */
+  }
+  .top_menu{
+     position: relative;
+     width: 1024px;
+    height: auto;
+     text-align: center;
+     margin-top: 25px;
+     margin-right: 0;
+     margin-left: 25px;
+     margin-bottom: 0;
+  
+     text-decoration: none;
+  }
+  .top_menu ul{list-style: none; }
+  .top_menu li{
+    list-style-type: none;
+    display: inline-block;
+    }
+  .top_menu li a{
+       color: black; padding: 0 15px;
+       display: block;
+      text-decoration: none;
+      font-family: 'Black Han Sans', sans-serif;
+       font-size: 20px;
+      }
+  .navi_1{float: left; margin-left: 20px;}
+  .navi_2{float: right; margin-right:20px;}
+  
+    body{
+      background-color:#ffffff;
+  
+    }
+  
+  /* .top_menu > ul{padding-left: 200px; margin: 20px; } */
+  
+  .wrapper{
+      color: rgb(51, 51,51);
+      font-family: Spoqa Han Sans,sans-serif;
+      margin-bottom: 0px;
+      margin-left: 0px;
+      margin-top: 0px;
+      margin-right: 0px;
+      padding: 0px;
+      overflow: hidden;
+      min-width: 320px;
+      margin : 0 auto;
+      width:100%;
+      text-align: center;
+  }
+  caption{width:200px;}
+  /* ------------------------------------------------------------------------------ */
+  .bar{
+    position: absolute;
+    top:110px;
+    width: 110px;
+    height: 300px;
+    /* background-color: #fff; */
+  }
+  .bar_content{
+  position: relative;
+  margin-top: 10px;
+    top:20px;
+    border-radius: 20px 20px 20px 20px;
+    background-color: rgba(255,228,0,0.9);
+  width: 100px;
+  height: 100px;
+  text-align: center;
+  
+  }
+  div label input {
+     margin-right:100px;
+  }
+  .ck-button{
+      margin:4px;
+      background-color:#EFEFEF;
+      border-radius:4px;
+      border:1px solid #D0D0D0;
+      overflow:auto;
+      float:left;
+  
+  }
+  .ck-button>label {
+      float:left;
+      width:8.0em;
+  }
+  .ck-button label span {
+      text-align:center;
+      padding:3px 0px;
+      display:block;
+  }
+  .ck-button label input {
+      position:absolute;
+     /*top:-20px;*/
+     visibility: hidden
+  }
+  .ck-button input:checked + span {
+      background-color:#911;
+      color:#fff;
+  }
+  /*-------------------------------------------*/
+         .banner_h {
+           margin-top: 30px;
+           margin-left: -50px;
+      background-color: rgba(118,96,33,0.3);
+         display: inline;
+      float: left;
+      height: 500px;
+      width: 200px;
+  
+  }
+       .content_m {
+      background-color: rgba(192,192,122,0.1);
+      float: right;
+      height: 300px;
+      width: 700px;
+          margin-top: 30px;
+         display: inline;
+  }
+  /* login */
+  .container{
+     height: 600px;
+    width: 100%;
+    /* background-color:rgba(0,0,0,0.5); */
+  }
+  .text_container{
+    width:100%;
+    margin: 0 auto;
+    padding: 0 auto;
+    height:388px;
+    background-color: black;
+  }
+  /*----------------------------*/
+  .form_title{
+    width: 100%;
+    height: 50px
+  }
+  .form_content{
+      width: 100%;
+      height: 150px;
+      background-color: rgba(251,255,144,0.7);
+  }
+  /* login */
+  .joinus{
+    width: 600px;
+    height: 450px;
+    background-color: rgba(255,178,245,0.1);
+      margin : 0 auto;
+    margin-top:30px;
+    border-radius: 30px 30px 30px 30px;
+  }
+  .from{width: 1024px;
+  height: 2000px;}
